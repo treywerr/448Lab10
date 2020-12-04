@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+	</head>
+
+	<body>
+		<h1>View User Posts</h1>
+		<?php
+		$mysqli = new mysqli("mysql.eecs.ku.edu", "treywerr", "AiNg4gue", "treywerr");
+		?>
+		<form method="post" action="ViewUserPosts.php">
+			<label for="user">Select a user to view:</label>
+			<select name="user" id="user">
+				<?php
+		       		$query = "SELECT user_id FROM Users";
+		       		if ($result = $mysqli->query($query)) {
+					while ($row = $result->fetch_assoc()) {
+						echo "<option value='" . $row["user_id"] . "'>" . $row["user_id"] . "</option>";
+					}
+					$result->free();
+				}
+				?>
+			</select>
+			<input type="submit">
+		</form>
+		<?php $mysqli->close() ?>
+	</body>
+</html>
