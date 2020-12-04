@@ -34,6 +34,7 @@ if ($userAuth == true) {
 		$query = "INSERT INTO Posts (content, author_id) VALUES ('" . $post . "', '" . $user . "');";
 		if ($result = $mysqli->query($query)) {
 			echo "<h3>Post saved</h3>";
+			$result->free();
 		} else {
 			echo "<h3>Unable to process query</h3>";
 		}
