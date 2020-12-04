@@ -1,5 +1,5 @@
 <?php
-
+/**
 $mysqli = new mysqli("mysql.eecs.ku.edu", "treywerr", "AiNg4gue",
 "treywerr");
 /* check connection */
@@ -7,7 +7,7 @@ if ($mysqli->connect_errno) {
  printf("Connect failed: %s\n", $mysqli->connect_error);
  exit();
 }
-
+**/
 $user = $_POST["username"];
 
 if ($user == "") {
